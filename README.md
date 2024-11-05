@@ -12,3 +12,4 @@ Dalam era digital saat ini, efisiensi dan akurasi sangat penting dalam pengelola
 3. Menampilkan hasil output dalam tabel terstruktur
    
 # Diagram Alir
+![Diagram Tanpa Judul drawio 1](https://github.com/user-attachments/assets/90d0757f-8491-4aa8-b447-f9b5394ac919)

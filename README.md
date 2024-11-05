@@ -7,5 +7,8 @@
 Dalam era digital saat ini, efisiensi dan akurasi sangat penting dalam pengelolaan sumber daya manusia, terutama dalam sistem penggajian. Mengingat banyaknya faktor yang memengaruhi perhitungan gaji seperti kehadiran, cuti, dan sakit, kami merasa perlu untuk mengembangkan sistem penghitungan gaji karyawan yang otomatis. Sistem ini akan mengumpulkan dan mengintegrasikan data kehadiran karyawan, kemudian akan diolah untuk membuat laporan kehadiran bagi setiap karyawan. Berdasarkan laporan tersebut, sistem akan secara otomatis menghitung gaji yang harus dibayarkan, termasuk potongan untuk cuti, izin, atau sakit. Dengan cara ini, proses penggajian menjadi lebih mudah dan akurat, sehingga perusahaan bisa lebih fokus pada pengembangan sumber daya manusianya.
 
 # Fitur Aplikasi
-
+1. Input data karyawan (data pribadi & jumlah hari sakit, izin, dan cuti)
+2. Penghitungan gaji
+3. Menampilkan hasil output dalam tabel terstruktur
+   
 # Diagram Alir

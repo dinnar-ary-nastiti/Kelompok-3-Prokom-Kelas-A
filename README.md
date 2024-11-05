@@ -13,3 +13,4 @@ Dalam era digital saat ini, efisiensi dan akurasi sangat penting dalam pengelola
    
 # Diagram Alir
 ![Diagram Tanpa Judul drawio 1](https://github.com/user-attachments/assets/90d0757f-8491-4aa8-b447-f9b5394ac919)
+Pada awal diagram ini, diberikan informasi terkait dengan jumlah hari, gaji perjam dan jam kerja perhari. lalu dilanjutkan dengan pengguna menginput jumlah karyawan yang pengguna sudah tentukan, kemudian program akan terus berjalan/berproses sesuai dengan diagram alir diatas sampai jumlah data yang dimasukan sudah sama seperti jumlah karyawan yang sudah pengguna input diawal. Setelah itu, program akan mengeluarkan output tabel berupa gaji, jumlah izin, sakit dan cuti dari keseluruhan jumlah karyawan.

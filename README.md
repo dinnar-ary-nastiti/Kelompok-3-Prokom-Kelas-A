@@ -13,7 +13,8 @@ Dalam era digital saat ini, efisiensi dan akurasi sangat penting dalam pengelola
 4. Keluar
 
 # Sitemap
-![Sitemap_Kelas A_Kelompok 3 drawio](https://github.com/user-attachments/assets/373f482e-e099-4fff-8cdf-6995cba132ee)
+![Sitemap_Kelas A_Kelompok 3 drawio (1)](https://github.com/user-attachments/assets/746eeb4f-4ac3-4d86-9e7e-52e07c1380e7)
+
 
 # Diagram Alir
 ![Diagram Tanpa Judul drawio 1](https://github.com/user-attachments/assets/90d0757f-8491-4aa8-b447-f9b5394ac919)

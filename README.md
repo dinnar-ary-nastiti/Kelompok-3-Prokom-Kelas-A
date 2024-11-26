@@ -18,7 +18,8 @@ Dalam era digital saat ini, efisiensi dan akurasi menjadihal penting dalam penge
 
 
 # Diagram Alir
-![Diagram Tanpa Judul-Halaman-2 drawio (2)](https://github.com/user-attachments/assets/https://drive.google.com/file/d/1SwRf6etJAjpkwSKye6GTafe0NqzLE9K5/view?usp=sharing)
+![Diagram Tanpa Judul-Halaman-2 drawio (2)](https://github.com/user-attachments/assets/3e03d36b-6483-4798-b847-cdce9c68d795).
 
 
-Pada awal diagram ini, diberikan informasi terkait dengan jumlah hari, gaji perjam dan jam kerja perhari. lalu dilanjutkan dengan pengguna menginput jumlah karyawan yang pengguna sudah tentukan dalam file excel berupa absensi data karyawan yang memuat izin, sakit, dan cuti menggunakan path file yang di input ke dalam menu pertama. Kemudian program akan terus berjalan/berproses sesuai dengan permintaan pada fitur aplikasi, jika memilih fitur ketiga berupa update gaji karyawan maka sistem akan otomatis menampilkan data karyawan beserta jumlah hari kerja sama seperti jumlah karyawan yang sudah pengguna input diawal, ditambah dengan rincian gaji yang sudah di hitung oleh sistem. Dengan kesimpulan, program akan mengeluarkan output tabel berupa gaji, jumlah izin, sakit dan cuti dari keseluruhan jumlah karyawan.
+
+Pada awal program ini akan  ada kata sambutan kepada  pemakai program, lalu dilanjutkan dengan 3 pilihan menu yang tertera yaitu, karyawan, HRD dan menu utama. Menu pilihan yang sudah dipilih oleh pemakai akan dilanjutkan sesuai alur yang tertera seperti di diagram alir tersebut, dimana apabila pemakai memilih menu karyawan maka akan menghasilkan output berupa file excel yang hanya akan bisa terpantau oleh HRD. Begitupun ketika pemakai memilih menu HRD maka pemakai dapat memilih beberapa opsi sesuai menu yang sudah tertera di diagram tersebut. Dari diagram tersebut maka dapat disimpulkan bahwa diagram ini akan menghasilkan output excel berupa data absensi dan gaji dari keluruhan karyawan.

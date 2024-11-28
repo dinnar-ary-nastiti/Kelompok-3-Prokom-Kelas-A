@@ -21,4 +21,11 @@ Dalam era digital saat ini, efisiensi dan akurasi menjadihal penting dalam penge
 
 
 
-Pada awal program ini akan  ada kata sambutan kepada  pemakai program, lalu dilanjutkan dengan 3 pilihan menu yang tertera yaitu, karyawan, HRD dan menu utama. Menu pilihan yang sudah dipilih oleh pemakai akan dilanjutkan sesuai alur yang tertera seperti di diagram alir tersebut, dimana apabila pemakai memilih menu karyawan maka akan menghasilkan output berupa file excel yang hanya akan bisa terpantau oleh HRD. Begitupun ketika pemakai memilih menu HRD maka pemakai dapat memilih beberapa opsi sesuai menu yang sudah tertera di diagram tersebut. Dari diagram tersebut maka dapat disimpulkan bahwa diagram ini akan menghasilkan output excel berupa data absensi dan gaji dari keluruhan karyawan.
+Proses dimulai dengan ucapan "Selamat Datang", di mana pengguna diminta untuk memilih peran sebagai Karyawan, HRD, atau kembali ke bagian awal. Jika pengguna memilih Karyawan, mereka diminta memasukkan Nama dan Password. Jika Nama atau Password yang dimasukkan tidak valid, sistem memberikan pesan "Nama atau Password salah!", dan Karyawan diarahkan kembali untuk mencoba lagi. Jika valid, sistem mengecek waktu absensi. Jika absensi dilakukan sebelum atau pada jam 10.00 WIB, status absensi ditandai sebagai Hadir; jika lebih dari jam yang telah di tentukan, status ditandai sebagai Alfa.
+
+Jika pengguna memilih peran HRD, mereka diminta memasukkan  Nama dan Password. Jika password salah, muncul pesan "Nama atau Password salah!" dan HRD diarahkan untuk mencoba kembali. Jika Nama dan password benar, HRD akan diberikan akses ke menu yang berisi opsi Lihat Data Gaji, Lihat Absensi, dan Kembali ke Menu Utama.
+Selanjutnya, data absensi yang telah dilakukan karyawan akan diolah dan data tersebut dapat diekspor dalam format Excel. Jika HRD memilih untuk melihat data gaji, sistem menghitung gaji berdasarkan formula : 
+Jumlah Gaji = Jumlah hadir x 8 × Rp15.000 (per 1 jam)
+dan hasilnya dapat diunduh dalam bentuk excel.
+
+Setelah proses ini selesai, sistem akan mengembalikan pengguna ke menu utama. Setiap langkah yang selesai diakhiri dengan kembalinya sistem ke menu utama, sehingga pengguna dapat memilih tindakan lainnya atau menyelesaikan sesi.

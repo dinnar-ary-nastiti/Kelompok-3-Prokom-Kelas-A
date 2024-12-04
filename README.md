@@ -17,11 +17,12 @@ Dalam era digital saat ini, efisiensi dan akurasi menjadihal penting dalam penge
 ![Diagram Tanpa Judul-Halaman-3 drawio (1)](https://github.com/user-attachments/assets/76875b85-6de6-4b13-a1fc-dd49a8e37f3a)
 
 # Diagram Alir
-![Diagram Tanpa Judul-Halaman-2 drawio (2)](https://github.com/user-attachments/assets/3e03d36b-6483-4798-b847-cdce9c68d795).
+![Diagram Tanpa Judul-Halaman-2 drawio (2)](https://github.com/user-attachments/assets/90659a04-fe2a-4f08-82b2-1a55ffa67211).
+).
 
 
 
-Proses dimulai dengan ucapan "Selamat Datang", di mana pengguna diminta untuk memilih peran sebagai Karyawan, HRD, atau kembali ke bagian awal. Jika pengguna memilih Karyawan, mereka diminta memasukkan Nama dan Password. Jika Nama atau Password yang dimasukkan tidak valid, sistem memberikan pesan "Nama atau Password salah!", dan Karyawan diarahkan kembali untuk mencoba lagi. Jika valid, sistem mengecek waktu absensi. Jika absensi dilakukan sebelum atau pada jam 10.00 WIB, status absensi ditandai sebagai Hadir; jika lebih dari jam yang telah di tentukan, status ditandai sebagai Alfa.
+Program dimulai dengan menu awal yang di mana pengguna diminta untuk memilih peran sebagai Karyawan, HRD, atau kembali ke bagian awal. Jika pengguna memilih Karyawan, mereka diminta memasukkan Nama dan Password. Jika Nama atau Password yang dimasukkan tidak valid, sistem memberikan pesan "Nama atau Password salah!", dan Karyawan diarahkan kembali untuk mencoba lagi. Jika valid, sistem mengecek waktu absensi. Jika absensi dilakukan sebelum atau pada jam 10.00 WIB, status absensi ditandai sebagai Hadir; jika lebih dari jam yang telah di tentukan, status ditandai sebagai Alfa.
 
 Jika pengguna memilih peran HRD, mereka diminta memasukkan  Nama dan Password. Jika password salah, muncul pesan "Nama atau Password salah!" dan HRD diarahkan untuk mencoba kembali. Jika Nama dan password benar, HRD akan diberikan akses ke menu yang berisi opsi Lihat Data Gaji, Lihat Absensi, dan Kembali ke Menu Utama.
 Selanjutnya, data absensi yang telah dilakukan karyawan akan diolah dan data tersebut dapat diekspor dalam format Excel. Jika HRD memilih untuk melihat data gaji, sistem menghitung gaji berdasarkan formula : 

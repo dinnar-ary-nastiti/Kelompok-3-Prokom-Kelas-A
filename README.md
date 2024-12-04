@@ -14,7 +14,8 @@ Dalam era digital saat ini, efisiensi dan akurasi menjadihal penting dalam penge
 5. Pengelolaan dan ekspor data dalam bentuk Excel
 
 # Sitemap
-![Diagram Tanpa Judul-Halaman-3 drawio (1)](https://github.com/user-attachments/assets/76875b85-6de6-4b13-a1fc-dd49a8e37f3a)
+![Diagram Tanpa Judul-Halaman-3 drawio (1)](https://github.com/user-attachments/assets/0520fcfc-d00a-4292-8af8-346c8cfcac6f)
+)
 
 # Diagram Alir
 ![Diagram Tanpa Judul-Halaman-2 drawio (2)](https://github.com/user-attachments/assets/90659a04-fe2a-4f08-82b2-1a55ffa67211).

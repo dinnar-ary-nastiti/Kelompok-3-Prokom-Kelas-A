@@ -16,7 +16,7 @@ def update_background(event):
     bg_label.config(image=bg_photo)
     bg_label.image = bg_photo
 
-bg_image = Image.open(r"D:\projecta\Kelompok-3-Prokom-Kelas-A\bismillah\selamatdatangrev.png")
+bg_image = Image.open("selamatdatangrev.png")
 bg_photo = ImageTk.PhotoImage(bg_image)
 bg_label = tk.Label(main_window, image=bg_photo)
 bg_label.place(relwidth=1, relheight=1)

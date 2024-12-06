@@ -12,6 +12,9 @@ Dalam era digital saat ini, efisiensi dan akurasi menjadihal penting dalam penge
 3. Absensi Karyawan (Hadir / Alfa)
 4. Perhitungan gaji
 5. Pengelolaan dan ekspor data dalam bentuk Excel
+6. Hasil Rekapan Absensi dalam format tabel
+7. Hasil Rekapan Gaji dalam format tabel
+   
 
 # Sitemap
 ![Diagram Tanpa Judul-Halaman-3 drawio (1)](https://github.com/user-attachments/assets/0520fcfc-d00a-4292-8af8-346c8cfcac6f)

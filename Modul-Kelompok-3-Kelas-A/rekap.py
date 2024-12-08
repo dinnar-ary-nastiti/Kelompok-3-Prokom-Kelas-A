@@ -64,7 +64,7 @@ def login_hrd():
         bg_label.config(image=bg_photo)
         bg_label.image = bg_photo
 
-    bg_image = Image.open("loginhrd.png")
+    bg_image = Image.open("Modul-Kelompok-3-Kelas-A\loginhrd.png")
     bg_photo = ImageTk.PhotoImage(bg_image)
     bg_label = tk.Label(main_window, image=bg_photo)
     bg_label.place(relwidth=1, relheight=1)
@@ -94,7 +94,7 @@ def hrd_dashboard():
         bg_label.config(image=bg_photo)
         bg_label.image = bg_photo
 
-    bg_image = Image.open("dashboardhrd.png")
+    bg_image = Image.open("Modul-Kelompok-3-Kelas-A\dashboardhrd.png")
     bg_photo = ImageTk.PhotoImage(bg_image)
     bg_label = tk.Label(main_window, image=bg_photo)
     bg_label.place(relwidth=1, relheight=1)
@@ -119,7 +119,7 @@ def tampilkan_rekap_absensi():
         bg_label.config(image=bg_photo)
         bg_label.image = bg_photo
 
-    bg_image = Image.open("rekapabsensi.png")
+    bg_image = Image.open("Modul-Kelompok-3-Kelas-A/rekapabsensi.png")
     bg_photo = ImageTk.PhotoImage(bg_image)
     bg_label = tk.Label(main_window, image=bg_photo)
     bg_label.place(relwidth=1, relheight=1)
@@ -166,7 +166,7 @@ def tampilkan_rekap_gaji():
         bg_label.config(image=bg_photo)
         bg_label.image = bg_photo
 
-    bg_image = Image.open("rekapgaji.png")
+    bg_image = Image.open("Modul-Kelompok-3-Kelas-A\rekapgaji.png")
     bg_photo = ImageTk.PhotoImage(bg_image)
     bg_label = tk.Label(main_window, image=bg_photo)
     bg_label.place(relwidth=1, relheight=1)

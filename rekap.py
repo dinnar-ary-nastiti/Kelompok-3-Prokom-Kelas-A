@@ -1,10 +1,10 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
 from PIL import Image, ImageTk
+from datetime import datetime
 import pandas as pd
+import os
 from menu import main_menu, main_window
-
-NAMA_FILE = "Absensi_Karyawan.xlsx"
 
 # Database HRD PT. Kadira
 hrd = {
@@ -12,6 +12,37 @@ hrd = {
     "Kayyis": "5678",
     "Rara": "0000"
 }
+
+# Database karyawan
+karyawan = {
+    "Aisyah Dewani Putri": "MJM001",
+    "Anastasya Gerarda Siahaan": "MJM002",
+    "Astriana Safira Maharsi": "MJM003",
+    "Daniswara Maria Rosalin": "MJM004",
+    "Dinnar Ary Nastiti": "MJM005",
+    "Fadzli Fiyannuba": "MJM006",
+    "Fidini Tsabita": "MJM007",
+    "Fitri Izzati": "MJM008",
+    "Galuh Chandra Maulida": "MJM009",
+    "Gym Fadhil Hiyatullah": "MJM010",
+    "Ida Fatkhur Rohmah": "MJM011",
+    "Julia Nastu Ayuningtyas": "MJM012",
+    "Kautsar Ramadhan Budianto": "MJM013",
+    "Kayyis Rusydi Firdaus": "MJM014",
+    "Leirisa Yajna Kirana Fagan": "MJM015",
+    "Lelicia Maria Emilia Gomes Soares": "MJM016",
+    "Lovela Cantika Wardhana": "MJM017",
+    "Luthfia Amanda Rohmah": "MJM018",
+    "Mar'atus Sholekhah": "MJM019",
+    "Muhammad Farhan Ahda Fadhila": "MJM020",
+    "Qanita Ulya": "MJM021",
+    "Rafeyfa Asyla Suryawan": "MJM022",
+    "Rafi Andhika Dwi Permana": "MJM023",
+    "Ratna Rahma Sabrina": "MJM024",
+    "Ryan Hafidz Setiawan": "MJM025",
+}
+
+NAMA_FILE = "Absensi_Karyawan.xlsx"
 
 # Fungsi untuk login HRD
 def login_hrd():
@@ -33,7 +64,7 @@ def login_hrd():
         bg_label.config(image=bg_photo)
         bg_label.image = bg_photo
 
-    bg_image = Image.open("Modul-Kelompok-3-Kelas-A\loginhrd.png")
+    bg_image = Image.open("loginhrd.png")
     bg_photo = ImageTk.PhotoImage(bg_image)
     bg_label = tk.Label(main_window, image=bg_photo)
     bg_label.place(relwidth=1, relheight=1)
@@ -63,7 +94,7 @@ def hrd_dashboard():
         bg_label.config(image=bg_photo)
         bg_label.image = bg_photo
 
-    bg_image = Image.open("Modul-Kelompok-3-Kelas-A\dashboardhrd.png")
+    bg_image = Image.open("dashboardhrd.png")
     bg_photo = ImageTk.PhotoImage(bg_image)
     bg_label = tk.Label(main_window, image=bg_photo)
     bg_label.place(relwidth=1, relheight=1)
@@ -88,7 +119,7 @@ def tampilkan_rekap_absensi():
         bg_label.config(image=bg_photo)
         bg_label.image = bg_photo
 
-    bg_image = Image.open("Modul-Kelompok-3-Kelas-A\rekapabsensi.png")
+    bg_image = Image.open("rekapabsensi.png")
     bg_photo = ImageTk.PhotoImage(bg_image)
     bg_label = tk.Label(main_window, image=bg_photo)
     bg_label.place(relwidth=1, relheight=1)
@@ -135,7 +166,7 @@ def tampilkan_rekap_gaji():
         bg_label.config(image=bg_photo)
         bg_label.image = bg_photo
 
-    bg_image = Image.open("Modul-Kelompok-3-Kelas-A\rekapgaji.png")
+    bg_image = Image.open("rekapgaji.png")
     bg_photo = ImageTk.PhotoImage(bg_image)
     bg_label = tk.Label(main_window, image=bg_photo)
     bg_label.place(relwidth=1, relheight=1)

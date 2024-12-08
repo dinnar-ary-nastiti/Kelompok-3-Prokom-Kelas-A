@@ -80,7 +80,7 @@ def login_karyawan():
         bg_label.config(image=bg_photo)
         bg_label.image = bg_photo
 
-    bg_image = Image.open("Modul-Kelompok-3-Kelas-A\loginkaryawan.png")
+    bg_image = Image.open("loginkaryawan.png")
     bg_photo = ImageTk.PhotoImage(bg_image)
     bg_label = tk.Label(main_window, image=bg_photo)
     bg_label.place(relwidth=1, relheight=1)
@@ -125,7 +125,7 @@ def karyawan_absen(nama, nip):
         bg_label.config(image=bg_photo)
         bg_label.image = bg_photo
 
-    bg_image = Image.open("Modul-Kelompok-3-Kelas-A\terimakasih.png")
+    bg_image = Image.open("terimakasih.png")
     bg_photo = ImageTk.PhotoImage(bg_image)
     bg_label = tk.Label(main_window, image=bg_photo)
     bg_label.place(relwidth=1, relheight=1)
@@ -157,7 +157,7 @@ def login_hrd():
         bg_label.config(image=bg_photo)
         bg_label.image = bg_photo
 
-    bg_image = Image.open("Modul-Kelompok-3-Kelas-A\loginhrd.png")
+    bg_image = Image.open("loginhrd.png")
     bg_photo = ImageTk.PhotoImage(bg_image)
     bg_label = tk.Label(main_window, image=bg_photo)
     bg_label.place(relwidth=1, relheight=1)
@@ -187,7 +187,7 @@ def hrd_dashboard():
         bg_label.config(image=bg_photo)
         bg_label.image = bg_photo
 
-    bg_image = Image.open("Modul-Kelompok-3-Kelas-A\dashboardhrd.png")
+    bg_image = Image.open("dashboardhrd.png")
     bg_photo = ImageTk.PhotoImage(bg_image)
     bg_label = tk.Label(main_window, image=bg_photo)
     bg_label.place(relwidth=1, relheight=1)
@@ -212,7 +212,7 @@ def tampilkan_rekap_absensi():
         bg_label.config(image=bg_photo)
         bg_label.image = bg_photo
 
-    bg_image = Image.open("Modul-Kelompok-3-Kelas-A\rekapabsensi.png")
+    bg_image = Image.open("rekapabsensi.png")
     bg_photo = ImageTk.PhotoImage(bg_image)
     bg_label = tk.Label(main_window, image=bg_photo)
     bg_label.place(relwidth=1, relheight=1)
@@ -259,7 +259,7 @@ def tampilkan_rekap_gaji():
         bg_label.config(image=bg_photo)
         bg_label.image = bg_photo
 
-    bg_image = Image.open("Modul-Kelompok-3-Kelas-A\rekapgaji.png")
+    bg_image = Image.open("rekapgaji.png")
     bg_photo = ImageTk.PhotoImage(bg_image)
     bg_label = tk.Label(main_window, image=bg_photo)
     bg_label.place(relwidth=1, relheight=1)
@@ -299,7 +299,7 @@ def tampilkan_rekap_gaji():
 
 # Fungsi untuk memperbarui latar belakang
 def update_background(event):
-    bg_image = Image.open("Modul-Kelompok-3-Kelas-A\selamatdatangrev.png")
+    bg_image = Image.open("selamatdatangrev.png")
     bg_image = bg_image.resize((main_window.winfo_width(), main_window.winfo_height()))
     bg_image = ImageTk.PhotoImage(bg_image)
 
@@ -318,7 +318,7 @@ def main_menu():
         bg_label.config(image=bg_photo)
         bg_label.image = bg_photo
 
-    bg_image = Image.open("Modul-Kelompok-3-Kelas-A\selamatdatangrev.png")
+    bg_image = Image.open("selamatdatangrev.png")
     bg_photo = ImageTk.PhotoImage(bg_image)
     bg_label = tk.Label(main_window, image=bg_photo)
     bg_label.place(relwidth=1, relheight=1)
@@ -343,7 +343,7 @@ def main_menu():
     
 # Fungsi untuk memperbarui latar belakang
 def update_background(event):
-    bg_image = Image.open("Modul-Kelompok-3-Kelas-A\loginkaryawan.png")
+    bg_image = Image.open("loginkaryawan.png")
     bg_image = bg_image.resize((main_window.winfo_width(), login_karyawan.winfo_height()))
     bg_image = ImageTk.PhotoImage(bg_image)
 

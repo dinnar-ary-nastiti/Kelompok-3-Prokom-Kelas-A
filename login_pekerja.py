@@ -73,7 +73,7 @@ def login_karyawan():
         bg_label.config(image=bg_photo)
         bg_label.image = bg_photo
 
-    bg_image = Image.open("Modul-Kelompok-3-Kelas-A\loginkaryawan.png")
+    bg_image = Image.open("loginkaryawan.png")
     bg_photo = ImageTk.PhotoImage(bg_image)
     bg_label = tk.Label(main_window, image=bg_photo)
     bg_label.place(relwidth=1, relheight=1)
@@ -118,7 +118,7 @@ def karyawan_absen(nama, nip):
         bg_label.config(image=bg_photo)
         bg_label.image = bg_photo
 
-    bg_image = Image.open("Modul-Kelompok-3-Kelas-A\terimakasih.png")
+    bg_image = Image.open("terimakasih.png")
     bg_photo = ImageTk.PhotoImage(bg_image)
     bg_label = tk.Label(main_window, image=bg_photo)
     bg_label.place(relwidth=1, relheight=1)

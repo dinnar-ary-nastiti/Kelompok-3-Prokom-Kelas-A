@@ -94,7 +94,7 @@ def hrd_dashboard():
         bg_label.config(image=bg_photo)
         bg_label.image = bg_photo
 
-    bg_image = Image.open("hrddashboard.png")
+    bg_image = Image.open("dashboardhrd.png")
     bg_photo = ImageTk.PhotoImage(bg_image)
     bg_label = tk.Label(main_window, image=bg_photo)
     bg_label.place(relwidth=1, relheight=1)

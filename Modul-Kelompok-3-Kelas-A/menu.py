@@ -259,7 +259,7 @@ def tampilkan_rekap_gaji():
         bg_label.config(image=bg_photo)
         bg_label.image = bg_photo
 
-    bg_image = Image.open("rekapgaji1.png")
+    bg_image = Image.open("rekapgaji.png")
     bg_photo = ImageTk.PhotoImage(bg_image)
     bg_label = tk.Label(main_window, image=bg_photo)
     bg_label.place(relwidth=1, relheight=1)

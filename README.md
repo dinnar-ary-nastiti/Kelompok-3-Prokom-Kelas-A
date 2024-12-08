@@ -14,6 +14,13 @@ Dalam era digital saat ini, efisiensi dan akurasi menjadihal penting dalam penge
 5. Pengelolaan dan ekspor data dalam bentuk Excel
 6. Hasil Rekapan Absensi dalam format tabel
 7. Hasil Rekapan Gaji dalam format tabel
+
+# Library
+1. tkinter
+2. pandas
+3. os
+4. datetime
+5. pillow
    
 
 # Sitemap

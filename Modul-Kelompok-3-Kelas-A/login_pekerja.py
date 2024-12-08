@@ -4,7 +4,7 @@ from PIL import Image, ImageTk
 from datetime import datetime
 import pandas as pd
 import os
-from main_menu import main_menu, main_window
+from menu import main_menu, main_window
 
 
 # Database karyawan

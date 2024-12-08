@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 from PIL import Image, ImageTk
 import pandas as pd
-from main_menu import main_menu, main_window
+from menu import main_menu, main_window
 
 NAMA_FILE = "Absensi_Karyawan.xlsx"
 

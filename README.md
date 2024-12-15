@@ -29,7 +29,8 @@ Dalam era digital saat ini, efisiensi dan akurasi menjadihal penting dalam penge
 
 
 # Diagram Alir
-![Diagram Tanpa Judul-Halaman-2 drawio (2)](https://github.com/user-attachments/assets/1ca3d2b9-65e8-43c8-9603-b58be90c0633).
+![Diagram Tanpa Judul-Halaman-2 drawio (2)](https://github.com/user-attachments/assets/df9b6d5d-c958-4431-9caf-f52eda813b5d)
+.
 
 
 

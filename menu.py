@@ -5,41 +5,26 @@ import pandas as pd
 import os
 from PIL import Image, ImageTk
 
-# Database Karyawan PT. Maju Jaya Makmur
-karyawan = {
-    "Aisyah Dewani Putri": "MJM001",
-    "Anastasya Gerarda Siahaan": "MJM002",
-    "Astriana Safira Maharsi": "MJM003",
-    "Daniswara Maria Rosalin": "MJM004",
-    "Dinnar Ary Nastiti": "MJM005",
-    "Fadzli Fiyannuba": "MJM006",
-    "Fidini Tsabita": "MJM007",
-    "Fitri Izzati": "MJM008",
-    "Galuh Chandra Maulida": "MJM009",
-    "Gym Fadhil Hiyatullah": "MJM010",
-    "Ida Fatkhur Rohmah": "MJM011",
-    "Julia Nastu Ayuningtyas": "MJM012",
-    "Kautsar Ramadhan Budianto": "MJM013",
-    "Kayyis Rusydi Firdaus": "MJM014",
-    "Leirisa Yajna Kirana Fagan": "MJM015",
-    "Lelicia Maria Emilia Gomes Soares": "MJM016",
-    "Lovela Cantika Wardhana": "MJM017",
-    "Luthfia Amanda Rohmah": "MJM018",
-    "Mar'atus Sholekhah": "MJM019",
-    "Muhammad Farhan Ahda Fadhila": "MJM020",
-    "Qanita Ulya": "MJM021",
-    "Rafeyfa Asyla Suryawan": "MJM022",
-    "Rafi Andhika Dwi Permana": "MJM023",
-    "Ratna Rahma Sabrina": "MJM024",
-    "Ryan Hafidz Setiawan": "MJM025",
-}
-
 # Database HRD PT. Kadira
 hrd = {
     "Dinnar": "1234",
     "Kayyis": "5678",
     "Rara": "0000"
 }
+
+# Path file karyawan
+KARYAWAN_FILE = "Karyawan.xlsx"
+
+# Fungsi untuk membaca data karyawan dari file Excel
+def load_karyawan():
+    try:
+        data = pd.read_excel(KARYAWAN_FILE)
+        if "Nama" not in data.columns or "NIP" not in data.columns:
+            raise ValueError("File Excel tidak memiliki kolom 'Nama' dan 'NIP'")
+        return data
+    except Exception as e:
+        messagebox.showerror("Error", f"Gagal membaca file karyawan: {e}")
+        return pd.DataFrame()
 
 # File Path untuk absensi
 NAMA_FILE = "Absensi_Karyawan.xlsx"
@@ -65,15 +50,21 @@ def login_karyawan():
     def submit_karyawan():
         nama = nama_combobox.get()
         password = password_entry.get()
-        if karyawan.get(nama) == password:
-            karyawan_absen(nama, karyawan[nama])
+        
+        # Validasi nama dan password (NIP)
+        if nama in karyawan_data["Nama"].values:
+            nip_terdaftar = karyawan_data.loc[karyawan_data["Nama"] == nama, "NIP"].values[0]
+            if password == nip_terdaftar:
+                karyawan_absen(nama, password)  # Panggil fungsi absensi dengan nama dan NIP
+            else:
+                messagebox.showerror("Error", "Nama atau Password salah!")
         else:
-            messagebox.showerror("Error", "Nama atau Password salah!")
+            messagebox.showerror("Error", "Nama tidak ditemukan!")
 
     for widget in main_window.winfo_children():
         widget.destroy()
-        
-    # Menambahkan latar belakang yang adjustable
+
+    # Background
     def update_background(event):
         bg_image_resized = bg_image.resize((main_window.winfo_width(), main_window.winfo_height()))
         bg_photo = ImageTk.PhotoImage(bg_image_resized)
@@ -88,9 +79,13 @@ def login_karyawan():
 
     main_window.bind("<Configure>", update_background)
 
-    # ttk.Label(main_window, text="Login Karyawan", font=("Helvetica", 25, "bold")).pack(pady=30)
+    # Load data karyawan dari Excel
+    karyawan_data = load_karyawan()
+    if karyawan_data.empty:
+        return
+
     ttk.Label(main_window, text="Nama", font=("Helvetica", 18, "bold")).place(relx=0.4, rely=0.3, anchor="center")
-    nama_combobox = ttk.Combobox(main_window, values=list(karyawan.keys()), state="readonly")
+    nama_combobox = ttk.Combobox(main_window, values=karyawan_data["Nama"].tolist(), state="readonly", width=25)
     nama_combobox.place(relx=0.5, rely=0.3, anchor="center")
     ttk.Label(main_window, text="Password", font=("Helvetica", 18, "bold")).place(relx=0.4, rely=0.4, anchor="center")
     password_entry = ttk.Entry(main_window, show="*")
@@ -180,7 +175,7 @@ def hrd_dashboard():
     for widget in main_window.winfo_children():
         widget.destroy()
 
-# Menambahkan latar belakang yang adjustable
+    # Menambahkan latar belakang yang adjustable
     def update_background(event):
         bg_image_resized = bg_image.resize((main_window.winfo_width(), main_window.winfo_height()))
         bg_photo = ImageTk.PhotoImage(bg_image_resized)
@@ -195,17 +190,18 @@ def hrd_dashboard():
 
     main_window.bind("<Configure>", update_background)
     
-    # ttk.Label(main_window, text="Dashboard HRD", font=("Helvetica", 25, "bold")).pack(pady=30)
+    # Tombol dashboard
     ttk.Button(main_window, text="Lihat Rekap Absensi", command=tampilkan_rekap_absensi).place(relx=0.5, rely=0.4, anchor="center")
     ttk.Button(main_window, text="Lihat Rekap Gaji", command=tampilkan_rekap_gaji).place(relx=0.5, rely=0.5, anchor="center")
-    ttk.Button(main_window, text="Kembali ke Menu Awal", command=main_menu).place(relx=0.5, rely=0.6, anchor="center")
+    ttk.Button(main_window, text="Tambah Karyawan", command=tambah_karyawan).place(relx=0.5, rely=0.6, anchor="center")
+    ttk.Button(main_window, text="Kembali ke Menu Awal", command=main_menu).place(relx=0.5, rely=0.7, anchor="center")
 
 # Fungsi untuk menampilkan rekap absensi
 def tampilkan_rekap_absensi():
     for widget in main_window.winfo_children():
         widget.destroy()
         
-        # Menambahkan latar belakang yang adjustable
+    # Menambahkan latar belakang yang adjustable
     def update_background(event):
         bg_image_resized = bg_image.resize((main_window.winfo_width(), main_window.winfo_height()))
         bg_photo = ImageTk.PhotoImage(bg_image_resized)
@@ -278,7 +274,6 @@ def tampilkan_rekap_gaji():
 
         ttk.Label(main_window, font=("Helvetica", 80, "bold")).place(relx=0, rely=0, anchor="center")
         
-
         table_frame = ttk.Frame(main_window)
         table_frame.pack(fill=tk.BOTH, expand=True)
 
@@ -289,13 +284,85 @@ def tampilkan_rekap_gaji():
         
         ttk.Button(main_window, text="Kembali", command=hrd_dashboard).place(relx=0.5, rely=0.9, anchor="center")
         
-
         for nama, gaji in gaji_karyawan.items():
             tree.insert("", tk.END, values=(nama, f"Rp {gaji:,}"))
 
-
     except Exception as e:
         messagebox.showerror("Error", f"Terjadi kesalahan: {e}")
+
+# Fungsi untuk menambah karyawan baru
+def tambah_karyawan():
+    for widget in main_window.winfo_children():
+        widget.destroy()
+        
+    # Menambahkan latar belakang yang adjustable
+    def update_background(event):
+        bg_image_resized = bg_image.resize((main_window.winfo_width(), main_window.winfo_height()))
+        bg_photo = ImageTk.PhotoImage(bg_image_resized)
+        bg_label.config(image=bg_photo)
+        bg_label.image = bg_photo
+
+    bg_image = Image.open("tambahkaryawan.png")
+    bg_photo = ImageTk.PhotoImage(bg_image)
+    bg_label = tk.Label(main_window, image=bg_photo)
+    bg_label.place(relwidth=1, relheight=1)
+    bg_label.image = bg_photo
+
+    main_window.bind("<Configure>", update_background)
+
+    
+    # Label dan Entry untuk Nama
+    ttk.Label(main_window, text="Nama", font=("Helvetica", 18)).place(relx=0.4, rely=0.3, anchor="center")
+    global nama_entry
+    nama_entry = ttk.Entry(main_window)
+    nama_entry.place(relx=0.5, rely=0.3, anchor="center")
+    
+    # Label dan Entry untuk NIP
+    ttk.Label(main_window, text="NIP", font=("Helvetica", 18)).place(relx=0.4, rely=0.4, anchor="center")
+    global nip_entry
+    nip_entry = ttk.Entry(main_window)
+    nip_entry.place(relx=0.5, rely=0.4, anchor="center")
+    
+    # Tombol Simpan
+    ttk.Button(main_window, text="Simpan", command=simpan_karyawan).place(relx=0.5, rely=0.5, anchor="center")
+    
+    # Tombol Kembali
+    ttk.Button(main_window, text="Kembali", command=hrd_dashboard).place(relx=0.5, rely=0.6, anchor="center")
+
+def simpan_karyawan():
+    nama = nama_entry.get()
+    nip = nip_entry.get()
+
+    if not nama or not nip:
+        messagebox.showerror("Error", "Nama dan NIP tidak boleh kosong!")
+        return
+
+    try:
+        # Definisikan baris baru yang akan ditambahkan
+        new_row = pd.DataFrame([{"Nama": nama, "NIP": nip}])
+
+        # Coba baca file Excel jika ada, jika tidak buat DataFrame baru
+        try:
+            data = pd.read_excel("karyawan.xlsx")
+            if data.empty:  # Jika file kosong
+                data = pd.DataFrame(columns=["Nama", "NIP"])
+        except (FileNotFoundError, ValueError):
+            data = pd.DataFrame(columns=["Nama", "NIP"])
+
+        # Tambahkan baris baru ke dalam DataFrame
+        data = pd.concat([data, new_row], ignore_index=True)
+
+        # Simpan kembali ke file Excel
+        data.to_excel("karyawan.xlsx", index=False)
+        messagebox.showinfo("Sukses", "Karyawan berhasil ditambahkan!")
+        hrd_dashboard()
+    except Exception as e:
+        messagebox.showerror("Error", f"Terjadi kesalahan: {e}")
+
+
+    ttk.Button(main_window, text="Simpan", command=simpan_karyawan).pack(pady=10)
+    ttk.Button(main_window, text="Kembali", command=hrd_dashboard).pack(pady=5)
+
 
 # Fungsi untuk memperbarui latar belakang
 def update_background(event):
@@ -305,6 +372,7 @@ def update_background(event):
 
     update_background(image=bg_image)
     update_background = bg_image  
+
 
 # Fungsi untuk menu awal
 def main_menu():
@@ -373,30 +441,6 @@ style.map(
     background=[("active", "#9fd5ec")],
     foreground=[("active", "black")],
 )
-
-# def start_app():
-#     main_window = tk.Tk()
-#     main_window.title("Absensi Karyawan PT. Maju Jaya Makmur")
-#     main_window.geometry("1920x1080")
-#     main_window.resizable(True, True)
-
-#     style = ttk.Style()
-#     style.configure(
-#         "Custom.TButton",
-#         font=("Helvetica", 12, "bold"),
-#         foreground="black",
-#         background="#9fd5ec",
-#         padding=10,
-#         borderwidth=1,
-#     )
-#     style.map(
-#         "Custom.TButton",
-#         background=[("active", "#9fd5ec")],
-#         foreground=[("active", "black")],
-#     )
-
-#     main_menu(main_window)
-#     main_window.mainloop()
 
 # Menampilkan menu utama
 main_menu()

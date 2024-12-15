@@ -6,38 +6,24 @@ import pandas as pd
 import os
 from menu import main_menu, main_window
 
+# Path file karyawan
+KARYAWAN_FILE = "Karyawan.xlsx"
 
-# Database karyawan
-karyawan = {
-    "Aisyah Dewani Putri": "MJM001",
-    "Anastasya Gerarda Siahaan": "MJM002",
-    "Astriana Safira Maharsi": "MJM003",
-    "Daniswara Maria Rosalin": "MJM004",
-    "Dinnar Ary Nastiti": "MJM005",
-    "Fadzli Fiyannuba": "MJM006",
-    "Fidini Tsabita": "MJM007",
-    "Fitri Izzati": "MJM008",
-    "Galuh Chandra Maulida": "MJM009",
-    "Gym Fadhil Hiyatullah": "MJM010",
-    "Ida Fatkhur Rohmah": "MJM011",
-    "Julia Nastu Ayuningtyas": "MJM012",
-    "Kautsar Ramadhan Budianto": "MJM013",
-    "Kayyis Rusydi Firdaus": "MJM014",
-    "Leirisa Yajna Kirana Fagan": "MJM015",
-    "Lelicia Maria Emilia Gomes Soares": "MJM016",
-    "Lovela Cantika Wardhana": "MJM017",
-    "Luthfia Amanda Rohmah": "MJM018",
-    "Mar'atus Sholekhah": "MJM019",
-    "Muhammad Farhan Ahda Fadhila": "MJM020",
-    "Qanita Ulya": "MJM021",
-    "Rafeyfa Asyla Suryawan": "MJM022",
-    "Rafi Andhika Dwi Permana": "MJM023",
-    "Ratna Rahma Sabrina": "MJM024",
-    "Ryan Hafidz Setiawan": "MJM025",
-}
+# Fungsi untuk membaca data karyawan dari file Excel
+def load_karyawan():
+    try:
+        data = pd.read_excel(KARYAWAN_FILE)
+        if "Nama" not in data.columns or "NIP" not in data.columns:
+            raise ValueError("File Excel tidak memiliki kolom 'Nama' dan 'NIP'")
+        return data
+    except Exception as e:
+        messagebox.showerror("Error", f"Gagal membaca file karyawan: {e}")
+        return pd.DataFrame()
 
+# File Path untuk absensi
 NAMA_FILE = "Absensi_Karyawan.xlsx"
 
+# Inisialisasi file jika belum ada
 if not os.path.exists(NAMA_FILE):
     pd.DataFrame(columns=['Nama', 'NIP', 'Tanggal', 'Jam', 'Keterangan']).to_excel(NAMA_FILE, index=False)
 
@@ -58,15 +44,21 @@ def login_karyawan():
     def submit_karyawan():
         nama = nama_combobox.get()
         password = password_entry.get()
-        if karyawan.get(nama) == password:
-            karyawan_absen(nama, karyawan[nama])
+        
+        # Validasi nama dan password (NIP)
+        if nama in karyawan_data["Nama"].values:
+            nip_terdaftar = karyawan_data.loc[karyawan_data["Nama"] == nama, "NIP"].values[0]
+            if password == nip_terdaftar:
+                karyawan_absen(nama, password)  # Panggil fungsi absensi dengan nama dan NIP
+            else:
+                messagebox.showerror("Error", "Nama atau Password salah!")
         else:
-            messagebox.showerror("Error", "Nama atau Password salah!")
+            messagebox.showerror("Error", "Nama tidak ditemukan!")
 
     for widget in main_window.winfo_children():
         widget.destroy()
         
-    # Menambahkan latar belakang yang adjustable
+    # Background
     def update_background(event):
         bg_image_resized = bg_image.resize((main_window.winfo_width(), main_window.winfo_height()))
         bg_photo = ImageTk.PhotoImage(bg_image_resized)
@@ -81,9 +73,13 @@ def login_karyawan():
 
     main_window.bind("<Configure>", update_background)
 
-    # ttk.Label(main_window, text="Login Karyawan", font=("Helvetica", 25, "bold")).pack(pady=30)
+    # Load data karyawan dari Excel
+    karyawan_data = load_karyawan()
+    if karyawan_data.empty:
+        return
+
     ttk.Label(main_window, text="Nama", font=("Helvetica", 18, "bold")).place(relx=0.4, rely=0.3, anchor="center")
-    nama_combobox = ttk.Combobox(main_window, values=list(karyawan.keys()), state="readonly")
+    nama_combobox = ttk.Combobox(main_window, values=karyawan_data["Nama"].tolist(), state="readonly", width=25)
     nama_combobox.place(relx=0.5, rely=0.3, anchor="center")
     ttk.Label(main_window, text="Password", font=("Helvetica", 18, "bold")).place(relx=0.4, rely=0.4, anchor="center")
     password_entry = ttk.Entry(main_window, show="*")
@@ -129,3 +125,4 @@ def karyawan_absen(nama, nip):
     ttk.Label(main_window, text=f"Terima kasih, {nama}!", font=("Helvetica", 25, "bold")).place(relx=0.5, rely=0.4, anchor="center")
     ttk.Label(main_window, text=f"Status Anda hari ini: {keterangan}", font=("Helvetica", 18)).place(relx=0.5, rely=0.5, anchor="center")
     ttk.Button(main_window, text="Kembali ke Menu Awal", command=main_menu).place(relx=0.5, rely=0.6, anchor="center")
+    
